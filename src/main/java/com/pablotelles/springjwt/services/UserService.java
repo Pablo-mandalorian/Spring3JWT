@@ -92,4 +92,14 @@ public class UserService {
         }
     }
 
+    //Delete user by username
+    public void deleteUserByUsername(String usernameString){
+        Optional<User> optionalUser = userRepository.findByUsername(usernameString);
+        if(!optionalUser.isPresent()){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        User userToDelete = optionalUser.get();
+        userRepository.delete(userToDelete);
+    }
+
 }
