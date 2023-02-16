@@ -2,7 +2,7 @@ package com.pablotelles.springjwt.services;
 
 import com.pablotelles.springjwt.repositorys.UserRepository;
 
-import jakarta.transaction.Transactional;
+//import jakarta.transaction.Transactional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -62,10 +62,13 @@ public class UserService {
         }
     }
 
+    /*
+     * 
+     
     //Update user
     @Transactional
     public void updateUser(String username, String firstName, String lastName, Integer age, String email, String password){
-        Optional<User> optionalUser = userRepository.findByUsername(username);
+        Optional<User> optionalUser = userRepository.findByUser(username);
 
         if(!optionalUser.isPresent()){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -73,7 +76,7 @@ public class UserService {
 
         User userToUpdate = optionalUser.get();
         if(username!=null){
-            userToUpdate.setUsername(username);
+            userToUpdate.setUser(username);
         }
         if(firstName!=null){
             userToUpdate.setFirstName(firstName);
@@ -94,7 +97,7 @@ public class UserService {
 
     //Delete user by username
     public void deleteUserByUsername(String usernameString){
-        Optional<User> optionalUser = userRepository.findByUsername(usernameString);
+        Optional<User> optionalUser = userRepository.findByUser(usernameString);
         if(!optionalUser.isPresent()){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
@@ -102,4 +105,5 @@ public class UserService {
         userRepository.delete(userToDelete);
     }
 
+    */
 }
